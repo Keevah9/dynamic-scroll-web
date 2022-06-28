@@ -17,27 +17,62 @@ body{
 }
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
-header{
-    min-width: 60%;
-    min-height: 53vh;
-    background-color: azure;
+/* global */
+a{
+    text-decoration: none;
+    color: rgb(219, 160, 12);
+    font-size: 1.8rem;
+    width: fit-content;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+.btn{
+    padding: 0.5rem 1.2rem;
+    border: 2px solid goldenrod;
+    border-radius: 10px;
+    max-width: 10rem;
+    margin: 1rem auto;
+    margin-top: 3rem;
+    display: block;
+}
+h1 {
+    text-align: center;
+    font-size: 3.5rem;
+    padding: 2rem;
+}
+h3 {
+    font-size: 3rem;
+}
+p {
+    font-size: 1.8rem;
+    max-width: 75vw;
     margin: auto;
-    /* border: 2px solid red; */
+    text-align: center;
+}
+span {
+    color: white;
+    text-transform: uppercase;
+    font-style: italic;
+}
+#date {
+    color: goldenrod;
+}
+
+/* header */
+
+header{
+    background-color: azure;
 }
 nav{
-    display: flex;
-    justify-content: space-around;
-    height: 10rem;
-    box-shadow: 0 5px 10px grey;
-    width: 100%;
-    align-items: center;
+    box-shadow: 0 5px 10px grey; 
 }
 .navToggle{
     display: flex;
     width: 50px;
-    height: 40px;
+    height: 35px;
     padding: 1px;
     flex-wrap: wrap;
     justify-content: center;
@@ -47,11 +82,6 @@ nav{
     background-color: transparent;
     border-radius: 5px;
     display: none;
-}
-.navHeader {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
 }
 .line{
     height: 5px;
@@ -75,90 +105,88 @@ nav{
 .navToggle:focus .line:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -13px);
 }
-
-.navBar{
-    display: flex;
-    align-items: center;
-    width: 90%;
+.navLinkContainer{
+    height: 0;
+    overflow: hidden;
+    margin: 1rem;
 }
 .links{
-    display: flex;
     list-style: none;
-    max-width: 100%;
+    transition: all 0.3s linear;
 }
-.show{
-    display: block;
+.showLinks{
+    min-height: 20rem;
 }
-h3{
-    font-size: 3rem;
+.fixedNav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: goldenrod;
+    box-shadow: 0 5px 15px grey;
 }
-li a{
-    padding: 0 2rem;
+.fixedNav li a {
+    color: whitesmoke;
 }
-a{
-    text-decoration: none;
-    color: rgb(219, 160, 12);
-    font-size: 1.9rem;
-}
+/* home */
+
 .banner{
-    min-width: 40rem;
-    max-width: 90rem;
-    min-height: 25vh;
-    margin: auto;
-    margin-top: 3rem;
+    width: 100%;
+    min-height: 70vh;
+    display: flex;
+    background-image: url('../images/bg4.jpeg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: whitesmoke;
 }
 .headerContainer{
-    margin-bottom: 0;
     max-width: 100%;
-}
-h1{
-    text-align: center;
-    font-size: 3.5rem;
-    padding: 2rem;
-}
-p{
-    font-size: 1.8rem;
-    max-width: 75vw;
     margin: auto;
-    text-align: center;
 }
-span{
-    color: white;
-    text-transform: uppercase;
-    font-style: italic;
-}
-#date{
-    color: goldenrod;
-}
-.btn{
-    padding: 0.5rem 1.2rem;
-    border: 2px solid goldenrod;
-    border-radius: 10px;
-    max-width: 10rem;
-    margin: 1rem auto;
-    margin-top: 3rem;
-    display: block;
-}
-.mainContainer{
+
+/* main sections */
+
+.mainContainer {
     width: 100%;
-    min-height: 50vh;
+    min-height: 70vh;
+    padding: 1rem;
 }
-.title{
+.title {
     text-align: center;
-    font-size: 4rem;
+    font-size: 3rem;
 }
+.home {
+    background-color: beige;
+}
+.about {
+    background-color: aquamarine;
+}
+.services {
+    background-color: cadetblue;
+}
+.contact {
+    background-color: darkcyan;
+}
+.pricing {
+    background-color: darkseagreen;
+}
+
+/* footer */
+
 footer{
     text-align: center;
+    padding: 1rem;
     padding-top: 4rem;
 }
+
+/* scroll up */
+
 img{
-    width: 45px;
-    height: 40px;
-    float: right;
-    border: 2px solid goldenrod;
+    width: 35px;
+    height: 35px;
+    background-color: bisque;
     border-radius: 10px;
     padding: 0.5rem;
-    box-shadow: 0 5px 10px solid grey;
     animation: bounce 2s ease-in-out infinite;
 }
 @keyframes bounce {
@@ -174,32 +202,73 @@ img{
         transform: scale(1);
     }
 }
-.home{
-    background-color: beige;
+.topLink {
+    font-size: 1.25rem;
+    position: fixed;
+    bottom: 3rem;
+    right: 4rem;
+    width: 2rem;
+    height: 2rem;
+    visibility: hidden;
+    z-index: -100;
 }
-.about{
-    background-color: aquamarine;
-}
-.services{
-    background-color: cadetblue;
-}
-.contact{
-    background-color: darkcyan;
-}
-.pricing{
-    background-color: darkseagreen;
-}
-
-.topLink{
-    /* position: fixed; */
+.showTopLink {
+    visibility: visible;
+    z-index: 100;
 }
 
-@media all and (max-width:660px){
-    .links{
-        display: none;
+
+/* media queries */
+
+@media all and (max-width:630px){
+    .navHeader{
+        min-width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.5rem 1.5rem 0 1.5rem;
     }
     .navToggle{
         display: flex;
     }
-        
+    .banner{
+        width: 100%;
+        padding: 1.5rem;
+    }
+    p{
+        max-width: 100%;
+    }
+    h1{
+        font-size: 3rem;
+    }
+    .title{
+        font-size: 2.5rem;
+    }
+}
+
+
+
+@media all and (min-width:631px) {
+    .navLinkContainer{
+        /* height: auto; */
+        height: auto !important;
+    }
+    .links{
+        display: flex;
+        height: auto;
+    }
+    .navHeader{
+        padding: 0;
+    }
+    .navToggle{
+        display: none;
+    }
+    .navBar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1170px;
+        margin: 0 auto;
+        padding: 1rem;
+    }
 }
