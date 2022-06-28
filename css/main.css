@@ -29,6 +29,12 @@ a{
     padding: 0.5rem 1rem;
     display: block;
 }
+a:hover{
+    cursor: pointer;
+    color: grey;
+    transform: scale(1.1);
+    transition: all 0.3s linear;
+}
 .btn{
     padding: 0.5rem 1.2rem;
     border: 2px solid goldenrod;
@@ -37,6 +43,12 @@ a{
     margin: 1rem auto;
     margin-top: 3rem;
     display: block;
+}
+.btn:hover{
+    background-color: white;
+    color: goldenrod;
+    border: none;
+    transform: scale(1.2);
 }
 h1 {
     text-align: center;
@@ -128,6 +140,7 @@ nav{
 .fixedNav li a {
     color: whitesmoke;
 }
+
 /* home */
 
 .banner{
